@@ -1,0 +1,27 @@
+name = "firebase_auth_cloudflare_worker"
+main = "index.js"
+compatibility_date = "2022-05-03"
+workers_dev = true
+
+# Secrets
+# https://developers.cloudflare.com/workers/platform/environment-variables#add-secrets-to-your-project
+# 
+# - R2_SECRET_ACCESS_KEY
+
+[vars]
+ACCOUNT_ID = "ea46a93070b0e84b332716a03ab245ef"
+PROJECT_ID = "cloudflare-r2-poc"
+PUBLIC_JWK_CACHE_KEY = "auth_token_verification_key"
+R2_ACCESS_KEY_ID = "e00f3da686259b8b4b65841d39f14923"
+
+[[kv_namespaces]]
+binding = "FIREBASE_AUTH_KV"
+id = "e74c47357c714ff080ae0a50baa3a316"
+
+[[r2_buckets]]
+binding = "CLOUDFLARE_BUCKET"
+bucket_name = "cloudflare-r2-poc-bucket"
+
+[[r2_buckets]]
+binding = "PUBLIC_BUCKET"
+bucket_name = "cloudflare-r2-poc-public-bucket"
